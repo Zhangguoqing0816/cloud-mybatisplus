@@ -1,0 +1,14 @@
+server:
+  port: 8903
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    #\u662F\u5426\u8981\u6CE8\u518C\u5230\u5176\u4ED6 Eureka Server \u5B9E\u4F8B
+    register-with-eureka: false
+    # \u662F\u5426\u8981\u4ECE\u5176\u4ED6 Eureka Server \u5B9E\u4F8B\u83B7\u53D6\u6570\u636E
+    fetch-registry: false
+    service-url:
+      # \u4E0B\u9762\u4E24\u79CD\u65B9\u5F0F\u968F\u4FBF\u4E00\u79CD\u90FD\u53EF\u4EE5\uFF0C\u4F46\u662F\u540E\u7F00 \u3010eureka\u3011\u5FC5\u4E0D\u53EF\u5C11
+      # defaultZone: http://{hostname}:{server.port}/eureka
+      defalutZone: http://localhost:8903/eureka
