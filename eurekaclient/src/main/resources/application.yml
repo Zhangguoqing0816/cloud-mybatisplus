@@ -2,12 +2,46 @@ server:
   port: 8904
 spring:
   application:
-    # \u5236\u5B9A\u6CE8\u518C\u5230 Eureka Server \u4E0A\u7684\u670D\u52A1\u540D\u79F0
+    # 制定注册到 Eureka Server 上的服务名称
     name: custom-clientOne
-eureka:
-  client:
-    service-url:
-      defaultZone: http://localhost:8903/eureka/
-  instance:
-    # \u662F\u5426\u6CE8\u518C IP \u5230 eureka server,\u5982\u679C\u4E0D\u6307\u5B9A\u6216\u8BBE\u4E3A false\uFF0C\u90A3\u5C31\u4F1A\u6CE8\u518C\u5230\u4E3B\u673A\u540D\u4E3A eureka server
-    prefer-ip-address: true
+  http:
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/testzhang?characterEncoding=utf-8&useSSL=true&serverTimezone=GMT
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    database: mysql
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+
+    #eureka:
+#  client:
+#    service-url:
+#      defaultZone: http://localhost:8903/eureka/
+#  instance:
+    # 是否注册 IP 到 eureka server,如果不指定或设为 false，那就会注册到主机名为 eureka server
+#    prefer-ip-address: true
+
+
+mybatis-plus:
+  global-config:
+    #主键类型  0:"数据库ID自增", 1:"用户输入ID",2:"全局唯一ID (数字类型唯一ID)", 3:"全局唯一ID UUID";
+    id-type: 0
+    field-strategy: 1
+    # 驼峰下划线转换
+    db-column-underline: true
+    # 逻辑删除配置
+    logic-delete-value: 0
+    logic-not-delete-value: 1
+    # 热加载mapper文件
+    refresh-mapper: false
+  configuration:
+    map-underscore-to-camel-case: true
+    cache-enabled: false

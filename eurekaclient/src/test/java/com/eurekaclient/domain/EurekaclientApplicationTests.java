@@ -1,4 +1,4 @@
-package com.eurekaclient.domain.eurekaclient;
+package com.eurekaclient.domain;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
