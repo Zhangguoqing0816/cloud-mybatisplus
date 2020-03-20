@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="eurekaclient2" />
+        <module name="eurekazuul" />
+        <module name="tx-manager-server" />
+        <module name="business-server" />
+        <module name="eurekaserver" />
+        <module name="eurekaclient" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="business-server" target="1.8" />
+      <module name="eurekaclient" target="1.8" />
+      <module name="eurekaclient2" target="1.8" />
+      <module name="eurekaserver" target="1.8" />
+      <module name="eurekazuul" target="1.8" />
+      <module name="tx-manager" target="1.8" />
+      <module name="tx-manager (1)" target="1.8" />
+      <module name="tx-manager-server" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="business-server" options="-parameters" />
+      <module name="eurekaclient" options="-parameters" />
+      <module name="eurekaclient2" options="-parameters" />
+      <module name="eurekaserver" options="-parameters" />
+      <module name="eurekazuul" options="-parameters" />
+      <module name="tx-manager" options="-parameters" />
+      <module name="tx-manager (1)" options="-parameters" />
+      <module name="tx-manager-server" options="-parameters" />
+    </option>
+  </component>
+</project>

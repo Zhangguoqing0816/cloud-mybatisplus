@@ -1,0 +1,67 @@
+server:
+  port: 8903
+spring:
+  application:
+    # 制定注册到 Eureka Server 上的服务名称
+    name: custom-client2
+  http:
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/testzhang2?characterEncoding=utf-8&useSSL=true&serverTimezone=GMT
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    database: mysql
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+  redis:
+    host: 106.13.55.213
+    port: 6379
+    password: zw123456
+    database: 5
+
+eureka:
+  instance:
+    # 是否注册 IP 到 eureka server,如果不指定或设为 false，那就会注册到主机名为 eureka server
+    prefer-ip-address: true
+    instance-id: ${spring.application.name}:${server.port}
+  client:
+    # eureka 服务端设置了账号密码 配置了eureka的账号密码后必须制定下面两个false
+    registerWithEureka: true
+    fetchRegistry: true
+    service-url:
+      defaultZone: http://localhost:8911/eureka
+
+mybatis-plus:
+  global-config:
+    #主键类型  0:"数据库ID自增", 1:"用户输入ID",2:"全局唯一ID (数字类型唯一ID)", 3:"全局唯一ID UUID";
+    id-type: 0
+    # 字段验证策略
+    #  ignored  不管有没有有设置属性，所有的字段都会设置到insert语句中，如果没设置值，全为null，这种在update 操作中会有风险，把有值的更新为null 
+    #  not_null,也是默认策略，也就是忽略null的字段，不忽略""
+    #  not-empty  为null，为空串的忽略，就是如果设置值为null，“”，不会插入数据库
+    field-strategy: 1
+    # 驼峰下划线转换
+    db-column-underline: true
+    # 逻辑删除配置
+    logic-delete-value: 0
+    logic-not-delete-value: 1
+    # 热加载mapper文件
+    refresh-mapper: false
+  configuration:
+    # 开启驼峰功能。
+    map-underscore-to-camel-case: true
+    cache-enabled: false
+tx-lcn:
+  client:
+    manager-address: 192.168.3.156:8888
+#  ribbon:
+#    loadbalancer:
+#      dtx:
+#        enabled: true #是否采用轮训

@@ -5,6 +5,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.netflix.eureka.server.EnableEurekaServer;
+import org.springframework.core.env.ConfigurableEnvironment;
 import org.springframework.core.env.Environment;
 
 import java.net.InetAddress;
@@ -16,8 +17,8 @@ public class EurekaServerApplication {
     private static final Logger logger = LoggerFactory.getLogger(EnableEurekaServer.class);
 
     public static void main(String[] args) {
-        SpringApplication.run(EurekaServerApplication.class, args);
-        logger.info("http://localhost:8903/");
+        ConfigurableEnvironment environment = SpringApplication.run(EurekaServerApplication.class, args).getEnvironment();
+        logger.info(" \n   eurekaServer 已启动  \n   http://localhost:{}/", environment.getProperty("server.port"));
     }
 
 }

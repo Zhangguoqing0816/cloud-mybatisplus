@@ -1,9 +1,9 @@
 server:
-  port: 8904
+  port: 8902
 spring:
   application:
     # 制定注册到 Eureka Server 上的服务名称
-    name: custom-clientOne
+    name: custom-client1
   http:
     encoding:
       charset: UTF-8
@@ -20,15 +20,23 @@ spring:
     show-sql: true
     hibernate:
       ddl-auto: update
+  redis:
+    host: 106.13.55.213
+    port: 6379
+    password: zw123456
+    database: 5
 
-    #eureka:
-#  client:
-#    service-url:
-#      defaultZone: http://localhost:8903/eureka/
-#  instance:
+eureka:
+  instance:
     # 是否注册 IP 到 eureka server,如果不指定或设为 false，那就会注册到主机名为 eureka server
-#    prefer-ip-address: true
-
+    prefer-ip-address: true
+    instance-id: ${spring.application.name}:${server.port}
+  client:
+    # eureka 服务端设置了账号密码 配置了eureka的账号密码后必须制定下面两个false
+    registerWithEureka: true
+    fetchRegistry: true
+    service-url:
+      defaultZone: http://localhost:8911/eureka
 
 mybatis-plus:
   global-config:
@@ -47,5 +55,13 @@ mybatis-plus:
     # 热加载mapper文件
     refresh-mapper: false
   configuration:
+    # 开启驼峰功能。
     map-underscore-to-camel-case: true
     cache-enabled: false
+tx-lcn:
+  client:
+    manager-address: 192.168.3.156:8888
+#  ribbon:
+#    loadbalancer:
+#      dtx:
+#        enabled: true #是否采用轮训

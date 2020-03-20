@@ -16,9 +16,9 @@ import javax.persistence.Table;
 @Table(name = "t_dept")
 public class DeptEntity {
 
-    @TableId(value = "id", type = IdType.AUTO)
+    @TableId(value = "id", type = IdType.INPUT)
     @Id
-    private Integer id;
+    private String id;
 
     //@TableField("user_name")
     private String deptName;
