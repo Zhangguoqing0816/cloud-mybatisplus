@@ -2,14 +2,12 @@ package com.eurekaClient.doMain.controller;
 
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.baomidou.mybatisplus.mapper.Wrapper;
-import com.codingapi.txlcn.tc.annotation.LcnTransaction;
 import com.eurekaClient.doMain.entity.DeptEntity;
 import com.eurekaClient.doMain.service.IDeptService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,7 +18,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/dept1")
 @Api(tags = "DeptController", description = "DeptController-Des")
-public class DeptController {
+public class Dept_Client1_Controller {
 
     @Autowired
     private IDeptService deptService;
@@ -65,17 +63,9 @@ public class DeptController {
         return deptEntities;
     }
 
-    @ApiOperation(value = "insert1", notes = "insert1")
-    @GetMapping("/insert1")
-    @Transactional//分布式事务
-    @LcnTransaction//本地事务注解
-    public void insert1(){
-        System.out.println(" come in  client1");
-        DeptEntity deptEntity = new DeptEntity();
-        deptEntity.setId("1");
-        deptEntity.setDeptName("DEPT_01");
-        System.out.println(deptEntity);
-        deptEntity.setDeptContent(deptEntity.getDeptName());
-        deptService.insert(deptEntity);
+    @ApiOperation(value = "insertClient1", notes = "insertClient1")
+    @GetMapping("/insertClient1")
+    public String insertClient1(String isFlag) {
+        return deptService.insertClient1(isFlag);
     }
 }

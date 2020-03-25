@@ -6,7 +6,7 @@ import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
-public interface IDeptService extends IService<DeptEntity> {
+public interface IDeptService2 extends IService<DeptEntity> {
 
     DeptEntity queryById(@Param("id") Integer di);
 
@@ -14,5 +14,5 @@ public interface IDeptService extends IService<DeptEntity> {
 
     DeptEntity selectOneForMapper(DeptEntity deptEntity);
 
-    void insertDept2(DeptEntity entity);
+    String insertClient2(String isFlag);
 }

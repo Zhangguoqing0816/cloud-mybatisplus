@@ -13,4 +13,6 @@ public interface IDeptService extends IService<DeptEntity> {
     List<DeptEntity> queryAll();
 
     DeptEntity selectOneForMapper(DeptEntity deptEntity);
+
+    String insertClient1(String isFlag);
 }

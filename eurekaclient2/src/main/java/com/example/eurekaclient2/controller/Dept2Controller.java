@@ -4,7 +4,7 @@ import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.baomidou.mybatisplus.mapper.Wrapper;
 import com.codingapi.txlcn.tc.annotation.LcnTransaction;
 import com.example.eurekaclient2.entity.DeptEntity;
-import com.example.eurekaclient2.service.IDeptService;
+import com.example.eurekaclient2.service.IDeptService2;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.apache.commons.lang3.StringUtils;
@@ -23,7 +23,7 @@ import java.util.List;
 public class Dept2Controller {
 
     @Autowired
-    private IDeptService deptService;
+    private IDeptService2 deptService;
 
     @ApiOperation(value = "queryById/{id}", notes = "queryById-notes")
     @GetMapping("/queryById/{id}")
@@ -80,17 +80,10 @@ public class Dept2Controller {
     }
 
 
-    @ApiOperation(value = "insert1", notes = "insert1")
-    @GetMapping("/insert1")
-    @Transactional//分布式事务
-    @LcnTransaction//本地事务注解
-    public void insert1(){
+    @ApiOperation(value = "insertClient2", notes = "insertClient2")
+    @GetMapping("/insertClient2")
+    public String insertClient2(String isFlag) {
         System.out.println(" come in  client2");
-        DeptEntity deptEntity = new DeptEntity();
-        deptEntity.setId("1");
-        deptEntity.setDeptName("DEPT_02");
-        deptEntity.setDeptContent(deptEntity.getDeptName());
-        System.out.println(deptEntity);
-        deptService.insertDept2(deptEntity);
+        return deptService.insertClient2(isFlag);
     }
 }

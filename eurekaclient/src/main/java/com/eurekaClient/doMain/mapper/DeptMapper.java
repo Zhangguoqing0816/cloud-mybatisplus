@@ -2,6 +2,7 @@ package com.eurekaClient.doMain.mapper;
 
 import com.baomidou.mybatisplus.mapper.BaseMapper;
 import com.eurekaClient.doMain.entity.DeptEntity;
+import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
@@ -19,4 +20,7 @@ public interface DeptMapper extends BaseMapper<DeptEntity> {
 
     @Select("select * from t_dept")
     List<DeptEntity> queryAll();
+
+    @Insert("insert into t_dept(id, dept_name, dept_content) values (#{id}, #{deptName}, #{deptContent})")
+    Integer add(DeptEntity deptEntity);
 }

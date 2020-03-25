@@ -10,7 +10,6 @@
         <option value="$PROJECT_DIR$/eurekaserver/pom.xml" />
         <option value="$PROJECT_DIR$/eurekaclient2/pom.xml" />
         <option value="$PROJECT_DIR$/eurekazuul/pom.xml" />
-        <option value="$PROJECT_DIR$/business-server/pom.xml" />
         <option value="$PROJECT_DIR$/tx-manager-server/pom.xml" />
       </list>
     </option>
